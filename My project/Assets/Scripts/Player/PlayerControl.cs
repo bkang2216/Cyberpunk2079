@@ -21,7 +21,7 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         inputH = Input.GetAxis("Horizontal");
-        Vector2 movement = new Vector2 ( Time.deltaTime * movementSpeed * inputH, 0);
-        rb.MovePosition(movement);
+        Vector2 movement = new Vector2 (Time.deltaTime * movementSpeed * inputH, 0);
+        rb.MovePosition((Vector2)transform.position + (movement) + (3f * Time.deltaTime * Physics2D.gravity));
     }
 }
