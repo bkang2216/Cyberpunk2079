@@ -7,6 +7,7 @@ public class PlayerControl : MonoBehaviour
     private Rigidbody2D rb;
 
     public float movementSpeed = 5f;
+    public float jumpHeight = 10f;
 
     float inputH;
     float inputV;
@@ -21,7 +22,12 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         inputH = Input.GetAxis("Horizontal");
-        Vector2 movement = new Vector2 (Time.deltaTime * movementSpeed * inputH, 0);
+        inputV = Input.GetAxis("Jump");
+        Vector2 movement = new(Time.deltaTime * movementSpeed * inputH, 0);
+        Vector2 jump = new(0 , Time.deltaTime * jumpHeight * inputV);
+        Debug.Log(inputV);
+
         rb.MovePosition((Vector2)transform.position + (movement) + (3f * Time.deltaTime * Physics2D.gravity));
+        rb.AddForce(jump, ForceMode2D.Impulse);
     }
 }
