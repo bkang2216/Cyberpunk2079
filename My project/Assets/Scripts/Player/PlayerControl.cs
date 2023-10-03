@@ -27,7 +27,7 @@ public class PlayerControl : MonoBehaviour
         Vector2 jump = new(0 , Time.deltaTime * jumpHeight * inputV);
         Debug.Log(inputV);
 
-        rb.MovePosition((Vector2)transform.position + (movement) + (3f * Time.deltaTime * Physics2D.gravity));
-        rb.AddForce(jump, ForceMode2D.Impulse);
+        rb.MovePosition((Vector2)transform.position + (movement) + (2f * Time.deltaTime * Physics2D.gravity));
+        rb.AddForce(jump, ForceMode2D.Force);
     }
 }
