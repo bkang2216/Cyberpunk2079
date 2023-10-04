@@ -2,19 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerControl : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private Vector2 jump;
 
-    public float movementSpeed = 5f;
+    public float movementPower = 10f;
     public float jumpPower = 10f;
 
     float inputH;
-    float inputV;
-
-    bool initiated;
 
     // Start is called before the first frame update
     void Awake()
@@ -25,26 +22,21 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        inputH = Input.GetAxis("Horizontal");
-        inputV = Input.GetAxis("Jump");
+        inputH = Input.GetAxisRaw("Horizontal");
 
-        Vector2 movement = new(Time.deltaTime * movementSpeed * inputH, 0);
-        jump = Vector2.up * jumpPower;
+        Vector2 movement = inputH * movementPower * Time.deltaTime * Vector2.right;
 
-        rb.MovePosition((Vector2)transform.position + (movement) + (2f * Time.deltaTime * Physics2D.gravity));
-        
-        rb.AddForce(jump, ForceMode2D.Impulse);
+        rb.AddForce(movement, ForceMode2D.Impulse);
 
-        if (!initiated)
+        if (Input.GetButtonDown("Jump") && rb.velocity.y == 0)
         {
-            InvokeRepeating(nameof(ReportDebug), 0, 1);
-            initiated = true;
+            rb.velocity = Vector2.up * jumpPower;
         }
-        
+
+        if (inputH == 0 && rb.velocity.x != 0 && rb.velocity.y == 0)
+        {
+            rb.velocity = Vector2.right * 0;
+        }
     }
 
-    void ReportDebug()
-    {
-        Debug.Log("STATUS: " + jump);
-    }
 }
