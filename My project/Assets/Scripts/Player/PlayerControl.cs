@@ -12,6 +12,7 @@ public class PlayerControl : MonoBehaviour
     public float jumpPower = 10f;
 
     float inputH;
+    float inputJump;
 
     // Start is called before the first frame update
     void Awake()
@@ -20,15 +21,21 @@ public class PlayerControl : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         inputH = Input.GetAxisRaw("Horizontal");
+        inputJump = Input.GetAxisRaw("Jump");
 
         Vector2 movement = inputH * movementPower * Time.deltaTime * Vector2.right;
 
-        rb.AddForce(movement, ForceMode2D.Impulse);
 
-        if (Input.GetButtonDown("Jump") && rb.velocity.y == 0)
+        if (rb.velocity.x <= movementPower && rb.velocity.x >= -movementPower)
+        {
+            rb.AddForce(movement, ForceMode2D.Impulse);
+        }
+        
+
+        if (inputJump == 1 && rb.velocity.y == 0)
         {
             rb.velocity = Vector2.up * jumpPower;
         }
@@ -37,6 +44,8 @@ public class PlayerControl : MonoBehaviour
         {
             rb.velocity = Vector2.right * 0;
         }
+
+        Debug.Log(rb.velocity.x);
     }
 
 }
