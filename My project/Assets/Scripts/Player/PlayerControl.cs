@@ -23,29 +23,28 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        inputH = Input.GetAxisRaw("Horizontal");
-        inputJump = Input.GetAxisRaw("Jump");
+        inputH = Input.GetAxisRaw("Horizontal");    // Get input from A/D keys
+        inputJump = Input.GetAxisRaw("Jump");       // Get input from Spacebar key
 
-        Vector2 movement = inputH * movementPower * Time.deltaTime * Vector2.right;
+        Vector2 movement = inputH * movementPower * Time.deltaTime * Vector2.right; // Calculate the movement for the player
 
-
+        // Limits the player's velocity in both directions
         if (rb.velocity.x <= movementPower && rb.velocity.x >= -movementPower)
         {
-            rb.AddForce(movement, ForceMode2D.Impulse);
+            rb.AddForce(movement, ForceMode2D.Impulse); // Adds horizontal force to the player
         }
         
-
+        // Limits the player's jump to only allow it once grounded
         if (inputJump == 1 && rb.velocity.y == 0)
         {
-            rb.velocity = Vector2.up * jumpPower;
+            rb.velocity = Vector2.up * jumpPower;   //Adds vertical force to the player
         }
 
+        // Once the player stops pressing A or D, they will come to a immediate stop
         if (inputH == 0 && rb.velocity.x != 0 && rb.velocity.y == 0)
         {
-            rb.velocity = Vector2.right * 0;
+            rb.velocity = Vector2.right * 0;    // Puts the player's velocity to 0
         }
-
-        Debug.Log(rb.velocity.x);
     }
 
 }
