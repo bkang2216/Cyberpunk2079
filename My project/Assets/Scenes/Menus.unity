@@ -216,13 +216,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 623284276390091471, guid: 6a37985aec6744c7f97fe2903258626d, type: 3}
-      propertyPath: m_AnchorMax.x
+    - target: {fileID: 227234128454689501, guid: 6a37985aec6744c7f97fe2903258626d, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 623284276390091471, guid: 6a37985aec6744c7f97fe2903258626d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 623284276390091471, guid: 6a37985aec6744c7f97fe2903258626d, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2189294915259287631, guid: 6a37985aec6744c7f97fe2903258626d, type: 3}
       propertyPath: m_Sprite
@@ -315,7 +319,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3458003166403823036, guid: 6a37985aec6744c7f97fe2903258626d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 938030116}
+      addedObject: {fileID: 938030120}
   m_SourcePrefab: {fileID: 100100000, guid: 6a37985aec6744c7f97fe2903258626d, type: 3}
 --- !u!114 &938030113 stripped
 MonoBehaviour:
@@ -344,7 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &938030116
+--- !u!114 &938030120
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -359,17 +363,17 @@ MonoBehaviour:
   slider: {fileID: 938030115}
   gradient:
     serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 1, g: 0.9880199, b: 0.0141509175, a: 1}
+    key2: {r: 0.43254662, g: 1, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 65535
-    ctime2: 0
+    ctime0: 20046
+    ctime1: 37201
+    ctime2: 65535
     ctime3: 0
     ctime4: 0
     ctime5: 0
@@ -383,9 +387,9 @@ MonoBehaviour:
     atime5: 0
     atime6: 0
     atime7: 0
-    m_Mode: 0
+    m_Mode: 1
     m_ColorSpace: -1
-    m_NumColorKeys: 2
+    m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   fill: {fileID: 938030113}
 --- !u!1 &1348530543
@@ -576,6 +580,10 @@ PrefabInstance:
       propertyPath: m_UiScaleMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1700724545910339093, guid: 193ddc8a6321149c39f4677d24bb62c1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2548507778069352221, guid: 193ddc8a6321149c39f4677d24bb62c1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -586,7 +594,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2655847106981431594, guid: 193ddc8a6321149c39f4677d24bb62c1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2923248258896248242, guid: 193ddc8a6321149c39f4677d24bb62c1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
