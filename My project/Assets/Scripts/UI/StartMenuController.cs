@@ -12,6 +12,7 @@ public class StartMenuController : MonoBehaviour
     }
     public void ExitGame() 
     {
+        // Quit game.
         Application.Quit();
     }
     public void OptionsGame() 

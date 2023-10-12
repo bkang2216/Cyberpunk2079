@@ -11,6 +11,7 @@ public class PauseMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // from the start the pause menu is set to be off
         pauseMenu.SetActive(false);
     }
 
@@ -18,6 +19,7 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape)){
+            // conditional statement for when the escape button is hit
             if(isPaused)
             {
                 ResumeGame();
