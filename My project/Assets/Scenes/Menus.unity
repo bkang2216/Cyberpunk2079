@@ -218,7 +218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 227234128454689501, guid: 6a37985aec6744c7f97fe2903258626d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 623284276390091471, guid: 6a37985aec6744c7f97fe2903258626d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -232,6 +232,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 05b31ef535fa6486ea547c83beb71f6e, type: 3}
+    - target: {fileID: 3458003166403823036, guid: 6a37985aec6744c7f97fe2903258626d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7271595307706461080, guid: 6a37985aec6744c7f97fe2903258626d, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -790,30 +794,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 934673387}
-    - target: {fileID: 2831484988930698465, guid: 303140b636cd84b59a00da3f639c56d5, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ResumeGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 3423031989648206466, guid: 303140b636cd84b59a00da3f639c56d5, type: 3}
-      propertyPath: m_Name
-      value: Back To Menu
-      objectReference: {fileID: 0}
     - target: {fileID: 4057390163401553956, guid: 303140b636cd84b59a00da3f639c56d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 934673387}
-    - target: {fileID: 4057390163401553956, guid: 303140b636cd84b59a00da3f639c56d5, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GoToMainMenu
-      objectReference: {fileID: 0}
     - target: {fileID: 4926688828186594239, guid: 303140b636cd84b59a00da3f639c56d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 934673387}
-    - target: {fileID: 4926688828186594239, guid: 303140b636cd84b59a00da3f639c56d5, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: QuitGame
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -830,10 +818,6 @@ PrefabInstance:
     - target: {fileID: 2262616001891426961, guid: d073fa1b38d7946eca3c12e9ea97f506, type: 3}
       propertyPath: m_Name
       value: DeathCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 2262616001891426961, guid: d073fa1b38d7946eca3c12e9ea97f506, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2885726619194662881, guid: d073fa1b38d7946eca3c12e9ea97f506, type: 3}
       propertyPath: m_Pivot.x
