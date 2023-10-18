@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundEffects : MonoBehaviour
 {
-    public AudioSource walking;
+    public AudioSource walking, jump2, wind;
 
     public AudioClip Click;
 
@@ -32,6 +32,7 @@ public class SoundEffects : MonoBehaviour
         
     }
 
+
     // Update is called once per frame
     void Update()
     {
@@ -39,10 +40,22 @@ public class SoundEffects : MonoBehaviour
         if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
             walking.enabled = true;
+            if (Input.GetKey(KeyCode.Space))
+            {
+                walking.enabled = false;
+                jump2.enabled = true;
+            }
+            else
+            {
+                walking.enabled = true;
+                jump2.enabled = false;
+            }
         }
         else
         {
             walking.enabled = false;
         }
+
+
     }
 }
