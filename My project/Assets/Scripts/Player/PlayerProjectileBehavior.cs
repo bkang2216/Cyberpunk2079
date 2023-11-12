@@ -5,11 +5,14 @@ using UnityEngine;
 public class PlayerProjectileBehavior : MonoBehaviour
 {
     Rigidbody2D rb;
-
-    public float projectileSpeed;
     GameObject player;
-
     bool playerTurned;
+    
+    public int projectileType;
+    public float projectileSpeed;
+    public float lifespanDuration;
+    
+    
 
     void Awake()
     {
@@ -20,6 +23,7 @@ public class PlayerProjectileBehavior : MonoBehaviour
     {
         player = GameObject.Find("Player");
         playerTurned = player.GetComponent<PlayerControl>().playerTurned;
+        StartCoroutine(nameof(Lifespan));
     }
 
     // Update is called once per frame
@@ -38,5 +42,13 @@ public class PlayerProjectileBehavior : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(gameObject);
+    }
+
+    private IEnumerator Lifespan()
+    {
+        Debug.Log("Bullet Spawn");
+        yield return new WaitForSeconds(lifespanDuration);
+        Destroy(gameObject);
+        Debug.Log("Bullet Deleted");
     }
 }

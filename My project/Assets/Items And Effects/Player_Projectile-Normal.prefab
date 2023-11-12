@@ -99,8 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5b9a196fd64f4b46b15f7dd329160b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectileType: 0
   projectileSpeed: 3000
-  player: {fileID: 5943606260902552317}
+  lifespanDuration: 0.45
 --- !u!61 &3513527063908478627
 BoxCollider2D:
   m_ObjectHideFlags: 0
