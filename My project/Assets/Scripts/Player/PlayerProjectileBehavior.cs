@@ -46,9 +46,7 @@ public class PlayerProjectileBehavior : MonoBehaviour
 
     private IEnumerator Lifespan()
     {
-        Debug.Log("Bullet Spawn");
         yield return new WaitForSeconds(lifespanDuration);
         Destroy(gameObject);
-        Debug.Log("Bullet Deleted");
     }
 }

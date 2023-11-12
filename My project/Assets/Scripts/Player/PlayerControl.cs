@@ -19,13 +19,11 @@ public class PlayerControl : MonoBehaviour
 
     const float MAXJUMP = 2;
 
-    // Start is called before the first frame update
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Movement();
