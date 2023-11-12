@@ -7,7 +7,6 @@ using UnityEngine.UIElements;
 public class PlayerControl : MonoBehaviour
 {
     private Rigidbody2D rb;
-
     public GameObject normalProjectile;
     public GameObject projectileOrigin;
     public float movementPower = 10f;

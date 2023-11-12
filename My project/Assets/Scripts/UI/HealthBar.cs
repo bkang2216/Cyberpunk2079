@@ -5,23 +5,43 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    public Slider slider;
-    public Gradient gradient;
-    public Image fill;
-
-// sets the max health
-    public void SetMaxHealth(int health)
+    public PlayerHealth playerHealth;
+    public Image fillImage;
+    private Slider slider;
+    void Awake() 
     {
-        slider.maxValue = health;
-        slider.value = health;
-
-        fill.color = gradient.Evaluate(1f);
+        slider = GetComponent<Slider>();
     }
-// sets the current health with the bar
-    public void SetHealth(int health)
+    void Update() 
     {
-        slider.value = health;
+        // if the health is less than 0, turn off the fill
+        if (slider.value <= slider.minValue)
+        {
+            fillImage.enabled = false;
+        }
 
-        fill.color = gradient.Evaluate(slider.normalizedValue);
+        // if the health is greater than 0, and the fill is off, turn it back on
+        if (slider.value > slider.minValue && !fillImage.enabled)
+        {
+            fillImage.enabled = true;
+        }
+        float fillValue = playerHealth.currentHealth;
+
+        // if the health is at 50, turn the fill yellow
+        if (fillValue <= slider.maxValue / 2)
+        {
+            fillImage.color = Color.yellow;
+        }
+
+        // if the health is at 30, turn the fill white, else turn red
+        if (fillValue <= slider.maxValue / 3)
+        {
+            fillImage.color = Color.white;
+        }
+        else if(fillValue > slider.maxValue / 3)
+        {
+            fillImage.color = Color.red;
+        }
+        slider.value = fillValue;  
     }
 }
