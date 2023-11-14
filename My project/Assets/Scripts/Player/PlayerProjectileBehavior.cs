@@ -4,21 +4,13 @@ using UnityEngine;
 
 public class PlayerProjectileBehavior : MonoBehaviour
 {
-    Rigidbody2D rb;
     GameObject player;
     bool playerTurned;
     
-    public int projectileType;
+    public int[] projectileDamage = new int[2];
     public float projectileSpeed;
     public float lifespanDuration;
     
-    
-
-    void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
-
     private void Start()
     {
         player = GameObject.Find("Player");
@@ -31,17 +23,21 @@ public class PlayerProjectileBehavior : MonoBehaviour
     {
         if (playerTurned)
         {
-            rb.velocity = projectileSpeed * Time.deltaTime * -transform.right;
+            transform.position = transform.position + projectileSpeed * Time.deltaTime * -transform.right;
         }
         else
         {
-            rb.velocity = projectileSpeed * Time.deltaTime * transform.right;
+            transform.position = transform.position + projectileSpeed * Time.deltaTime * transform.right;
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
+        if (!collision.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
+        
     }
 
     private IEnumerator Lifespan()

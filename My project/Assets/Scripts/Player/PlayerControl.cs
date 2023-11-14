@@ -7,8 +7,7 @@ using UnityEngine.UIElements;
 public class PlayerControl : MonoBehaviour
 {
     private Rigidbody2D rb;
-    public GameObject normalProjectile;
-    public GameObject projectileOrigin;
+    
     public float movementPower = 10f;
     public float jumpPower = 10f;
 
@@ -27,7 +26,6 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         Movement();
-        Shoot();
 
         if (rb.velocity.y == 0) { jump = 0; } // Resets player's jumps to 0 after retaining a 0 velocity on the y-axis
     }
@@ -70,12 +68,5 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    void Shoot()
-    {
-        if (Input.GetKeyUp(KeyCode.Mouse1))
-        {
-            Instantiate(normalProjectile, projectileOrigin.transform.position, transform.rotation);
-        }
-        
-    }
+    
 }
