@@ -5118,6 +5118,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7940791254379981575, guid: 6a37985aec6744c7f97fe2903258626d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 700
+      objectReference: {fileID: 0}
+    - target: {fileID: 7940791254379981575, guid: 6a37985aec6744c7f97fe2903258626d, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.16918
       objectReference: {fileID: 0}
@@ -5131,11 +5135,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7940791254379981575, guid: 6a37985aec6744c7f97fe2903258626d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -339
+      value: -376
       objectReference: {fileID: 0}
     - target: {fileID: 7940791254379981575, guid: 6a37985aec6744c7f97fe2903258626d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 117
+      value: 230
       objectReference: {fileID: 0}
     - target: {fileID: 8020662019016332984, guid: 6a37985aec6744c7f97fe2903258626d, type: 3}
       propertyPath: fillImage
