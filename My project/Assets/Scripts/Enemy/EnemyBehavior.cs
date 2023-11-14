@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
-    int health;
+    public int health;
     int damage;
 
     private void Awake()
     {
-        health = GetComponent<EnemyStats>().health;
-        damage = GetComponent<EnemyStats>().damage;
+        health = gameObject.GetComponent<EnemyStats>().health;
+        damage = gameObject.GetComponent<EnemyStats>().damage;
+
+        Debug.Log(gameObject.name + " | Health/Damage: " + health + "/" + damage);
     }
 
     public void TakeDamage()
