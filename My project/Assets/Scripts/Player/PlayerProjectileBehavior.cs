@@ -38,6 +38,10 @@ public class PlayerProjectileBehavior : MonoBehaviour
             Destroy(gameObject);
         }
         
+        if (collision.CompareTag("Enemy"))
+        {
+            collision.GetComponent<EnemyDamageCalculation>().TakeDamage(projectileDamage[0], projectileDamage[1]);
+        }
     }
 
     private IEnumerator Lifespan()

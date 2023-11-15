@@ -15,7 +15,6 @@ public class PlayerShootingMechanic : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse1))
         {
             ++time;
-            Debug.Log(time);
         }
         else if (Input.GetKeyUp(KeyCode.Mouse1))
         {
@@ -39,16 +38,5 @@ public class PlayerShootingMechanic : MonoBehaviour
     void ShootChargedProjectile()
     {
         Instantiate(chargedProjectile, projectileOrigin.transform.position, transform.rotation);
-    }
-    private void OnTriggerEnter2D(Collider2D collision) 
-    {
-        if (collision.tag == "Enemy")
-        {
-            var healthComponent = collision.GetComponent<EnemyStats>();
-            if (healthComponent != null)
-            {
-                healthComponent.TakeDamage(10);
-            }
-        }
     }
 }
