@@ -40,4 +40,15 @@ public class PlayerShootingMechanic : MonoBehaviour
     {
         Instantiate(chargedProjectile, projectileOrigin.transform.position, transform.rotation);
     }
+    private void OnTriggerEnter2D(Collider2D collision) 
+    {
+        if (collision.tag == "Enemy")
+        {
+            var healthComponent = collision.GetComponent<EnemyStats>();
+            if (healthComponent != null)
+            {
+                healthComponent.TakeDamage(10);
+            }
+        }
+    }
 }

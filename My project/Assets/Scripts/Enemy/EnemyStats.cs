@@ -6,16 +6,22 @@ using UnityEngine.UI;
 
 public class EnemyStats : MonoBehaviour
 {
-    TextMeshProUGUI healthDisplay;
+    //TextMeshProUGUI healthDisplay;
+    [SerializeField] public int health,damage; 
 
-    int healthRemaining;
-
-    public int health;
-    public int damage;
-
-    private void Awake()
+    private void Awake() 
     {
-        healthDisplay = gameObject.GetComponentInChildren<TextMeshProUGUI>();
-        healthRemaining = gameObject.GetComponentInChildren<EnemyBehavior>().health;
+        //healthDisplay = gameObject.GetComponentInChildren<TextMeshProUGUI>();
+        //healthRemaining = gameObject.GetComponentInChildren<EnemyBehavior>().health;
+    }
+    public void TakeDamage(int damageAmount)
+    {
+        health -= damageAmount;
+        Debug.Log(gameObject.name + " | Health/Damage: " + health + "/" + damage);
+
+        if (health <= 0)
+        {
+            //Enemy is Dead
+        }
     }
 }

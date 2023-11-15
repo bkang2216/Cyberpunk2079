@@ -4,27 +4,12 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
+    int healthRemaining;
     public int health;
     int damage;
-
-    private void Awake()
+    private void Awake() 
     {
         health = gameObject.GetComponent<EnemyStats>().health;
         damage = gameObject.GetComponent<EnemyStats>().damage;
-
-        Debug.Log(gameObject.name + " | Health/Damage: " + health + "/" + damage);
-    }
-
-    public void TakeDamage()
-    {
-
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-
-        }
     }
 }
