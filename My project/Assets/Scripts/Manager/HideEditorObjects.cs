@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HideEditorObjects : MonoBehaviour
 {
-    public GameObject[] editorObjects;
+    [SerializeField] private GameObject[] editorObjects;
     // Start is called before the first frame update
     void Start()
     {

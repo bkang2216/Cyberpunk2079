@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileDamage: 0400000006000000
   projectileSpeed: 20
-  lifespanDuration: 0.8
+  lifespanDuration: 1
 --- !u!61 &3513527063908478627
 BoxCollider2D:
   m_ObjectHideFlags: 0
