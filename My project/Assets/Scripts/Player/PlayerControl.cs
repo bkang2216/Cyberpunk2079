@@ -7,7 +7,8 @@ using UnityEngine.UIElements;
 public class PlayerControl : MonoBehaviour
 {
     private Rigidbody2D rb;
-    
+    private Animator animator;
+
     public float movementPower = 10f;
     public float jumpPower = 10f;
 
@@ -20,6 +21,7 @@ public class PlayerControl : MonoBehaviour
 
     void Awake()
     {
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -27,7 +29,15 @@ public class PlayerControl : MonoBehaviour
     {
         Movement();
 
-        if (rb.velocity.y == 0) { jump = 0; } // Resets player's jumps to 0 after retaining a 0 velocity on the y-axis
+        if (rb.velocity.y == 0) 
+        {
+            jump = 0;                               // Resets player's jumps to 0 after retaining a 0 velocity on the y-axis
+            if (animator.GetBool("isJumping") == true)
+            {
+                animator.SetBool("isJumping", false);
+                animator.SetBool("isIdle", true);
+            }
+        }
     }
 
     void Movement()
@@ -36,10 +46,23 @@ public class PlayerControl : MonoBehaviour
 
         Vector2 movement = inputH * movementPower * Time.deltaTime * Vector2.right; // Calculate the movement for the player
 
-        // Limits the player's jump to only allow it when not exceeding the max jump limit
+        // Logic for running and idle
+        if (inputH != 0)
+        {
+            animator.SetBool("isMoving", true);         // Plays running animation
+            
+        }
+        else
+        {
+            animator.SetBool("isMoving", false);    // Plays idle animation
+        }
+
+        // Reads jump input and limits the player's jump to only allow it when not exceeding the max jump limit
         if (Input.GetButtonDown("Jump") && jump != MAXJUMP)
         {
             rb.velocity = Vector2.up * jumpPower;   //Adds vertical force to the player
+            animator.SetBool("isIdle", false);
+            animator.SetBool("isJumping", true);    //Plays jumping animation
             ++jump;
         }
 
@@ -64,7 +87,7 @@ public class PlayerControl : MonoBehaviour
         // Once the player stops pressing A or D, they will come to a immediate stop
         if (inputH == 0 && rb.velocity.x != 0 && rb.velocity.y == 0)
         {
-            rb.velocity = Vector2.right * 0;    // Puts the player's velocity to 0
+            rb.velocity = Vector2.right * 0;        // Puts the player's velocity to 0
         }
     }
 
