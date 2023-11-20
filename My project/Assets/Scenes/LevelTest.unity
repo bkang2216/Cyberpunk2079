@@ -469,6 +469,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1014763251526125204, guid: 8e435e9fd5b79b14fb65c206b614d865, type: 3}
+      propertyPath: damping
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2464047717966014325, guid: 8e435e9fd5b79b14fb65c206b614d865, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -512,6 +516,22 @@ PrefabInstance:
     - target: {fileID: 5831740637875954952, guid: 8e435e9fd5b79b14fb65c206b614d865, type: 3}
       propertyPath: m_Name
       value: S.T.E.V.E (Player)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7603131104967787094, guid: 8e435e9fd5b79b14fb65c206b614d865, type: 3}
+      propertyPath: jumpPower
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7603131104967787094, guid: 8e435e9fd5b79b14fb65c206b614d865, type: 3}
+      propertyPath: movementPower
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7652879472251822170, guid: 8e435e9fd5b79b14fb65c206b614d865, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7652879472251822170, guid: 8e435e9fd5b79b14fb65c206b614d865, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -705,12 +725,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 10399f46a61cfd34f849c179c2c58684, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_DrawMode: 2
+  m_Size: {x: 1000, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -726,7 +746,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -2.005, z: 0}
-  m_LocalScale: {x: 194.09825, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -768,13 +788,13 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 1000, y: 1}
     adaptiveTilingThreshold: 0.5
-    drawMode: 0
+    drawMode: 2
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1000, y: 1}
   m_EdgeRadius: 0
 --- !u!1001 &4271226748725725489
 PrefabInstance:
