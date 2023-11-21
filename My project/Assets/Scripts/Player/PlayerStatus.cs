@@ -15,6 +15,15 @@ public class PlayerStatus : MonoBehaviour
         UpdateDisplay();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("HealthBoost"))
+        {
+            HealDamage(1);
+            Destroy(collision.gameObject);
+        }
+    }
+
     private void UpdateDisplay()
     {
         healthDisplay.sprite = healthSprites[health];
@@ -26,7 +35,7 @@ public class PlayerStatus : MonoBehaviour
         UpdateDisplay();
         if (health <= 0)
         {
-            // Game Over Function
+            PlayerDeath();
         }
     }
 
@@ -38,5 +47,13 @@ public class PlayerStatus : MonoBehaviour
             health = 10;
         }
         UpdateDisplay();
+    }
+
+    void PlayerDeath()
+    {
+        GetComponent<PlayerControl>().enabled = false;
+        GetComponent<PlayerShootingMechanic>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<Rigidbody2D>().simulated = false;
     }
 }

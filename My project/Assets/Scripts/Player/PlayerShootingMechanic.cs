@@ -12,11 +12,11 @@ public class PlayerShootingMechanic : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse1))
+        if (Input.GetKey(KeyCode.Mouse0))
         {
             ++time;
         }
-        else if (Input.GetKeyUp(KeyCode.Mouse1))
+        else if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             if (time >= 500)
             {
