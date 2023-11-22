@@ -15,11 +15,7 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField] private Transform currPoint;
     private Rigidbody2D rb;
     private Animator animator;
-
-    void Idle()
-    {
-        animator.SetBool("isAttacking", false);
-    }
+    
 
     private void Awake()
     {
@@ -32,13 +28,18 @@ public class EnemyBehavior : MonoBehaviour
         pointB.transform.SetParent(null);
     }
 
+    private void Idle()
+    {
+        animator.SetBool("isAttacking", false);
+    }
+
     private void Update()
     {
         Patrol();
 
     }
 
-    void Patrol()
+    private void Patrol()
     {
         if (currPoint == pointB.transform)
         {
