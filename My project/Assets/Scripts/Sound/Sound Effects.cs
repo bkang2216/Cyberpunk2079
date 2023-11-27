@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class SoundEffects : MonoBehaviour
 {
-    public AudioSource walking, jump2, wind;
-
-    public AudioClip Click;
+    public AudioSource walking, jump2, wind, shoot;
 
     public static SoundEffects sfxInstance;
 
-
+    bool grounded;
     private void Awake()
     {
         if (sfxInstance != null && sfxInstance != this)
@@ -29,7 +27,7 @@ public class SoundEffects : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
 
@@ -40,22 +38,47 @@ public class SoundEffects : MonoBehaviour
         if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
             walking.enabled = true;
-            if (Input.GetKey(KeyCode.Space))
-            {
-                walking.enabled = false;
-                jump2.enabled = true;
-            }
-            else
-            {
-                walking.enabled = true;
-                jump2.enabled = false;
-            }
+            jump2.enabled = false;
         }
         else
         {
             walking.enabled = false;
         }
 
+        if (Input.GetKey(KeyCode.Space) && grounded)
+        {
+            jump2.enabled = true;
+        }
+        else
+        {
+            jump2.enabled = false;
+        }
+
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            shoot.enabled = true;
+        }
+        else
+        {
+            shoot.enabled = false;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.CompareTag("Ground"))
+        {
+            grounded = true;
+        }
+        
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            grounded = false;
+        }
 
     }
 }
