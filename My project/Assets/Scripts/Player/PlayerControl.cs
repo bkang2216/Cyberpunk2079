@@ -81,13 +81,15 @@ public class PlayerControl : MonoBehaviour
         // Limits the player's velocity in both directions
         if (rb.velocity.x <= movementPower && rb.velocity.x >= -movementPower)
         {
-            rb.AddForce(movement, ForceMode2D.Impulse); // Adds horizontal force to the player
+            rb.AddForce(movement * 20, ForceMode2D.Impulse); // Adds horizontal force to the player
         }
 
         // Once the player stops pressing A or D, they will come to a immediate stop
-        if (inputH == 0 && rb.velocity.x != 0 && rb.velocity.y == 0)
+        if (inputH == 0 && rb.velocity.x != 0)
         {
+            float yVelocity = rb.velocity.y;
             rb.velocity = Vector2.right * 0;        // Puts the player's velocity to 0
+            rb.velocity = Vector2.up*yVelocity;
         }
     }
 

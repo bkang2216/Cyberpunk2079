@@ -15,6 +15,7 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField] private Transform currPoint;
     private Rigidbody2D rb;
     private Animator animator;
+    private SpriteRenderer sr;
 
     void Idle()
     {
@@ -23,9 +24,11 @@ public class EnemyBehavior : MonoBehaviour
 
     private void Awake()
     {
-        damage = gameObject.GetComponent<EnemyStatus>().damage;
-        rb = gameObject.GetComponent<Rigidbody2D>();
-        animator = gameObject.GetComponent<Animator>();
+        damage =    GetComponent<EnemyStatus>().damage;
+        rb =            GetComponent<Rigidbody2D>();
+        animator =  GetComponent<Animator>();
+        sr =            GetComponent<SpriteRenderer>();
+        
         currPoint = pointB.transform;
 
         pointA.transform.SetParent(null);
@@ -63,9 +66,14 @@ public class EnemyBehavior : MonoBehaviour
 
     private void Turn()
     {
-        Vector3 localScale = gameObject.transform.localScale;
-        localScale.x *= -1;
-        gameObject.transform.localScale = localScale;
+        if (sr.flipX == false)
+        {
+            sr.flipX = true;
+        }
+        else
+        {
+            sr.flipX = false;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

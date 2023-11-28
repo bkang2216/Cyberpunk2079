@@ -840,17 +840,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2621986855157157310, guid: 8e435e9fd5b79b14fb65c206b614d865, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.249939
+      objectReference: {fileID: 0}
+    - target: {fileID: 3000095039680957756, guid: 8e435e9fd5b79b14fb65c206b614d865, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5831740637875954952, guid: 8e435e9fd5b79b14fb65c206b614d865, type: 3}
       propertyPath: m_Name
       value: S.T.E.V.E (Player)
       objectReference: {fileID: 0}
+    - target: {fileID: 6616959702693284747, guid: 8e435e9fd5b79b14fb65c206b614d865, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7603131104967787094, guid: 8e435e9fd5b79b14fb65c206b614d865, type: 3}
       propertyPath: jumpPower
-      value: 10
+      value: 7.8
       objectReference: {fileID: 0}
     - target: {fileID: 7603131104967787094, guid: 8e435e9fd5b79b14fb65c206b614d865, type: 3}
       propertyPath: movementPower
-      value: 14
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7652879472251822170, guid: 8e435e9fd5b79b14fb65c206b614d865, type: 3}
       propertyPath: m_Interpolate
@@ -859,6 +871,10 @@ PrefabInstance:
     - target: {fileID: 7652879472251822170, guid: 8e435e9fd5b79b14fb65c206b614d865, type: 3}
       propertyPath: m_GravityScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8285010654075576586, guid: 8e435e9fd5b79b14fb65c206b614d865, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.31640625
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -880,7 +896,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1622440357}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a76f666633e4dff4e95c247cf8ab2618, type: 3}
   m_Name: 
@@ -888,7 +904,7 @@ MonoBehaviour:
   walking: {fileID: 725282692}
   jump2: {fileID: 1684034950}
   wind: {fileID: 18739068}
-  shoot: {fileID: 1654301423}
+  shoot: {fileID: 0}
 --- !u!1 &1654301421
 GameObject:
   m_ObjectHideFlags: 0

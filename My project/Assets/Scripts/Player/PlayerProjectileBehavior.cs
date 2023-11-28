@@ -6,21 +6,25 @@ public class PlayerProjectileBehavior : MonoBehaviour
 {
     GameObject player;
     bool playerTurned;
-    
+
     public int[] projectileDamage = new int[2];
     public float projectileSpeed;
     public float lifespanDuration;
-    
+
     private void Start()
     {
         player = GameObject.Find("Player");
+
         playerTurned = player.GetComponent<PlayerControl>().playerTurned;
         StartCoroutine(nameof(Lifespan));
+
+        Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if (playerTurned)
         {
             transform.position = transform.position + projectileSpeed * Time.deltaTime * -transform.right;
@@ -29,6 +33,16 @@ public class PlayerProjectileBehavior : MonoBehaviour
         {
             transform.position = transform.position + projectileSpeed * Time.deltaTime * transform.right;
         }
+    }
+
+    void IdleSpeed()
+    {
+
+    }
+
+    void MovementSpeed()
+    {
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
