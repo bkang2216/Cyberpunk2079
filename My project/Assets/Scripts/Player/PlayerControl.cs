@@ -29,12 +29,26 @@ public class PlayerControl : MonoBehaviour
     {
         Movement();
 
+        if (rb.velocity.y > 3f)
+        {
+            animator.SetBool("isJumping", true);
+            animator.SetBool("isFalling", false);
+            animator.SetBool("isIdle", false);
+        }
+        if (rb.velocity.y < -3f)
+        {
+            animator.SetBool("isFalling", true);
+            animator.SetBool("isJumping", false);
+            animator.SetBool("isIdle", false);
+        }
+
         if (rb.velocity.y == 0) 
         {
             jump = 0;                               // Resets player's jumps to 0 after retaining a 0 velocity on the y-axis
-            if (animator.GetBool("isJumping") == true)
+            if (animator.GetBool("isJumping") == true || animator.GetBool("isFalling"))
             {
                 animator.SetBool("isJumping", false);
+                animator.SetBool("isFalling", false);
                 animator.SetBool("isIdle", true);
             }
         }
@@ -47,7 +61,7 @@ public class PlayerControl : MonoBehaviour
         Vector2 movement = inputH * movementPower * Time.deltaTime * Vector2.right; // Calculate the movement for the player
 
         // Logic for running and idle
-        if (inputH != 0)
+        if (inputH != 0 && rb.velocity.y < 3f && rb.velocity.y > -3f)
         {
             animator.SetBool("isMoving", true);         // Plays running animation
             
@@ -61,8 +75,6 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetButtonDown("Jump") && jump != MAXJUMP)
         {
             rb.velocity = Vector2.up * jumpPower;   //Adds vertical force to the player
-            animator.SetBool("isIdle", false);
-            animator.SetBool("isJumping", true);    //Plays jumping animation
             ++jump;
         }
 

@@ -7,16 +7,18 @@ TagManager:
   - Enemy
   - HealthBoost
   - Ground
+  - Manager
+  - Exit
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemy
   - Water
   - UI
   - Postprocessing
   - BG
-  - 
+  - Player
   - 
   - 
   - 

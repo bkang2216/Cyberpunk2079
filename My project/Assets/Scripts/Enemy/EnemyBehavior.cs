@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
-    // TODO: ADD ENEMY AI BEHAVIOR, SUCH AS PATHING AND ATTACKING PATTERN
     int damage; //Assigned a value
 
     public GameObject pointA;
@@ -16,10 +15,35 @@ public class EnemyBehavior : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer sr;
+    private GameObject player;
+    [SerializeField] private bool cooldownTimer;
 
-    void Idle()
+#pragma warning disable IDE0051 // Remove unused private members
+    void Idle() // Used by Skelebot Attack Animation
+#pragma warning restore IDE0051 // Remove unused private members
     {
         animator.SetBool("isAttacking", false);
+    }
+
+    private IEnumerator Cooldown()
+    {
+        yield return new WaitForSeconds(0.4f);
+        cooldownTimer = false;
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (!cooldownTimer)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                cooldownTimer = true;
+                animator.SetBool("isAttacking", true);
+                collision.gameObject.GetComponent<PlayerStatus>().TakeDamage(damage);
+                StartCoroutine(Cooldown());
+            }
+        }
+
     }
 
     private void Awake()
@@ -28,8 +52,9 @@ public class EnemyBehavior : MonoBehaviour
         rb =            GetComponent<Rigidbody2D>();
         animator =  GetComponent<Animator>();
         sr =            GetComponent<SpriteRenderer>();
-        
+
         currPoint = pointB.transform;
+        
 
         pointA.transform.SetParent(null);
         pointB.transform.SetParent(null);
@@ -37,7 +62,39 @@ public class EnemyBehavior : MonoBehaviour
 
     private void Update()
     {
-        Patrol();
+        if (player == null)
+        {
+            Patrol();
+        }
+        else
+        {
+            Hunt();
+        }
+        
+
+    }
+
+    private void Hunt()
+    {
+
+        Vector3 playerPos = transform.InverseTransformPoint(player.transform.position);
+        
+        if (playerPos.x < 0)
+        {
+            if (sr.flipX)
+            {
+                Turn();
+            }
+            rb.velocity = new Vector2(-speed, 0);
+        }
+        else
+        {
+            if (!sr.flipX)
+            {
+                Turn();
+            }
+            rb.velocity = new Vector2(speed, 0);
+        }
 
     }
 
@@ -51,6 +108,8 @@ public class EnemyBehavior : MonoBehaviour
         {
             rb.velocity = new Vector2(speed, 0);
         }
+
+        Debug.Log(Vector2.Distance(transform.position, currPoint.position));
 
         if (Vector2.Distance(transform.position, currPoint.position) < 1.5 && currPoint == pointB.transform)
         {
@@ -76,13 +135,16 @@ public class EnemyBehavior : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D hit)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (hit.gameObject.CompareTag("Player"))
         {
-            animator.SetBool("isAttacking", true);
-            collision.gameObject.GetComponent<PlayerStatus>().TakeDamage(damage);
+            if (player == null)
+            {
+                player = hit.gameObject;
+            }
         }
+        
     }
 
     private void OnDrawGizmos()

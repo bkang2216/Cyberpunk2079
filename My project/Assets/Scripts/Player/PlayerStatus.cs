@@ -7,12 +7,22 @@ public class PlayerStatus : MonoBehaviour
 {
     // WIP Script - Will replace HurtPlayer and PlayerHealth Scripts
     private int health = 10;
+    private GameObject manager;
+
     [SerializeField] private Image healthDisplay;
     [SerializeField] private Sprite[] healthSprites;
+    [SerializeField] private Rigidbody2D rb;
+    
+
 
     private void Awake()
     {
         UpdateDisplay();
+    }
+
+    private void Start()
+    {
+        manager = GameObject.FindGameObjectWithTag("Manager");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -26,12 +36,17 @@ public class PlayerStatus : MonoBehaviour
 
     private void UpdateDisplay()
     {
-        healthDisplay.sprite = healthSprites[health];
+        if (health >= 0)
+        {
+            healthDisplay.sprite = healthSprites[health];
+        }
     }
 
     public void TakeDamage(int damage)
     {
+
         health -= damage;
+
         UpdateDisplay();
         if (health <= 0)
         {
@@ -55,5 +70,7 @@ public class PlayerStatus : MonoBehaviour
         GetComponent<PlayerShootingMechanic>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<Rigidbody2D>().simulated = false;
+
+        manager.GetComponent<Rules>().GameOver();
     }
 }

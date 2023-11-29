@@ -159,10 +159,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -295,11 +295,11 @@ RectTransform:
   - {fileID: 2621986855157157310}
   m_Father: {fileID: 7286153858335825154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -509.9, y: 480}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 20, y: -227.3}
   m_SizeDelta: {x: 100, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &4990985563370551245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -722,8 +722,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1392398945977215608}
-  - component: {fileID: 3424732137533722856}
   - component: {fileID: 7603131104967787094}
+  - component: {fileID: 3424732137533722856}
   - component: {fileID: 7168017191611362751}
   - component: {fileID: 7652879472251822170}
   - component: {fileID: 9035742093808591625}
@@ -752,6 +752,21 @@ Transform:
   - {fileID: 6336290236231605489}
   m_Father: {fileID: 2464047717966014325}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7603131104967787094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5788804024203893162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd181508766297f4bb1936af2f582e25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementPower: 12
+  jumpPower: 8.2
+  playerTurned: 0
 --- !u!114 &3424732137533722856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -777,21 +792,7 @@ MonoBehaviour:
   - {fileID: -471261419, guid: 06e6c203219f597418bddaf333dffbae, type: 3}
   - {fileID: -2066033400, guid: 06e6c203219f597418bddaf333dffbae, type: 3}
   - {fileID: 190512096, guid: 06e6c203219f597418bddaf333dffbae, type: 3}
---- !u!114 &7603131104967787094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5788804024203893162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd181508766297f4bb1936af2f582e25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementPower: 8
-  jumpPower: 5
-  playerTurned: 0
+  rb: {fileID: 7652879472251822170}
 --- !u!114 &7168017191611362751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -807,7 +808,7 @@ MonoBehaviour:
   normalProjectile: {fileID: 5943606260902552317, guid: d0dd6700947a9ad4b95b38fdf08ed6b8, type: 3}
   chargedProjectile: {fileID: 5943606260902552317, guid: f8a9557a1c4b16c4d8db082807275c54, type: 3}
   projectileOrigin: {fileID: 215517765760978489}
-  chargeTime: 350
+  chargeTime: 275
   slider: {fileID: 4990985563370551245}
   progressBar: {fileID: 1536000442993976952}
 --- !u!50 &7652879472251822170
@@ -825,7 +826,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 2
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -835,7 +836,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!70 &9035742093808591625
 CapsuleCollider2D:

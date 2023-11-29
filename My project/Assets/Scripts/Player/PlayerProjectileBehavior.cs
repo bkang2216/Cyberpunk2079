@@ -35,26 +35,25 @@ public class PlayerProjectileBehavior : MonoBehaviour
         }
     }
 
-    void IdleSpeed()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-
+        Destroy(gameObject);
     }
 
-    void MovementSpeed()
+    private void OnTriggerEnter2D(Collider2D hit)
     {
-
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!collision.CompareTag("Player"))
+        if (hit.CompareTag("Enemy"))
         {
+            hit.GetComponent<EnemyDamageCalculation>().TakeDamage(projectileDamage[0], projectileDamage[1]);
             Destroy(gameObject);
         }
-        
-        if (collision.CompareTag("Enemy"))
+        else if (hit.CompareTag("EditorOnly"))
         {
-            collision.GetComponent<EnemyDamageCalculation>().TakeDamage(projectileDamage[0], projectileDamage[1]);
+            // Does nothing on purpose to allow the projectile to pass-through objects meant for editor purposes.
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 
