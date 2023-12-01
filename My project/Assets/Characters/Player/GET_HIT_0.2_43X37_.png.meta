@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 139b02e023faa144791fcc9ce0588546
+guid: 2c9a146ec08216c45bd250b0bd83d7f2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 10
+  spritePixelsToUnits: 13
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player-idle_0
+      name: GET_HIT_0.2_43X37__0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 43
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e7f8fcf69a779443860ceb830865c1c
-      internalID: 974632450
+      spriteID: 32951bf762c613f40856575538b6241a
+      internalID: -695113718
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player-idle_1
+      name: GET_HIT_0.2_43X37__1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 43
         y: 0
-        width: 32
-        height: 32
+        width: 43
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c4deae7ba18f7a43b12ca1d72067c42
-      internalID: -1085488064
+      spriteID: 5a602ee4e3fcf764296bfe6f2338fc93
+      internalID: 181855999
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player-idle_2
+      name: GET_HIT_0.2_43X37__2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 86
         y: 0
-        width: 32
-        height: 32
+        width: 43
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e93ab86f1af77e4e8bd338bc40495f8
-      internalID: -502103694
+      spriteID: 500079418b2fc1b49909560948486ff4
+      internalID: -1184764536
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player-idle_3
+      name: GET_HIT_0.2_43X37__3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 129
         y: 0
-        width: 32
-        height: 32
+        width: 43
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,8 +200,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6cf01f16c531c1d4fafe04a63d7590dc
-      internalID: 388138642
+      spriteID: ffdb3b0e63bee444fa1d1f33d7ff0866
+      internalID: 235028395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GET_HIT_0.2_43X37__4
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 0
+        width: 43
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59493b344de1b344ea4d634d4da13a28
+      internalID: -48079817
       vertices: []
       indices: 
       edges: []
@@ -217,10 +238,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      player-idle_0: 974632450
-      player-idle_1: -1085488064
-      player-idle_2: -502103694
-      player-idle_3: 388138642
+      GET_HIT_0.2_43X37__0: -695113718
+      GET_HIT_0.2_43X37__1: 181855999
+      GET_HIT_0.2_43X37__2: -1184764536
+      GET_HIT_0.2_43X37__3: 235028395
+      GET_HIT_0.2_43X37__4: -48079817
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

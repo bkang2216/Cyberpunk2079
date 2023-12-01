@@ -796,9 +796,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 391537090598133921, guid: 8e435e9fd5b79b14fb65c206b614d865, type: 3}
+      propertyPath: m_Size.x
+      value: 3.3076923
+      objectReference: {fileID: 0}
+    - target: {fileID: 391537090598133921, guid: 8e435e9fd5b79b14fb65c206b614d865, type: 3}
+      propertyPath: m_Size.y
+      value: 2.7692308
+      objectReference: {fileID: 0}
+    - target: {fileID: 391537090598133921, guid: 8e435e9fd5b79b14fb65c206b614d865, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1252935723, guid: 7fd5b75608fe7c141aebbe12eb9ce2e2, type: 3}
+    - target: {fileID: 391537090598133921, guid: 8e435e9fd5b79b14fb65c206b614d865, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1014763251526125204, guid: 8e435e9fd5b79b14fb65c206b614d865, type: 3}
       propertyPath: damping
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392398945977215608, guid: 8e435e9fd5b79b14fb65c206b614d865, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.11
       objectReference: {fileID: 0}
     - target: {fileID: 2464047717966014325, guid: 8e435e9fd5b79b14fb65c206b614d865, type: 3}
       propertyPath: m_LocalPosition.x
