@@ -18,8 +18,7 @@ public class EnemyStatus : MonoBehaviour
     public void ReceiveDamage(int damage)
     {
         healthRemaining -= damage;
-        Debug.Log(damage + " damage dealt!");
-        Debug.Log(gameObject.name + " health: " + healthRemaining + "/" + totalHealth);
+        Debug.Log(damage + " damage dealt!" + '\n' + gameObject.name + " health: " + healthRemaining + "/" + totalHealth);
         if (healthRemaining <= 0)
         {
             //Enemy's death animation is played

@@ -85,7 +85,7 @@ public class EnemyBehavior : MonoBehaviour
             {
                 Turn();
             }
-            rb.velocity = new Vector2(-speed, 0);
+            rb.velocity = new Vector2(-speed*1.2f, 0);
         }
         else
         {
@@ -93,7 +93,7 @@ public class EnemyBehavior : MonoBehaviour
             {
                 Turn();
             }
-            rb.velocity = new Vector2(speed, 0);
+            rb.velocity = new Vector2(speed * 1.2f, 0);
         }
 
     }
@@ -108,8 +108,6 @@ public class EnemyBehavior : MonoBehaviour
         {
             rb.velocity = new Vector2(speed, 0);
         }
-
-        Debug.Log(Vector2.Distance(transform.position, currPoint.position));
 
         if (Vector2.Distance(transform.position, currPoint.position) < 1.5 && currPoint == pointB.transform)
         {

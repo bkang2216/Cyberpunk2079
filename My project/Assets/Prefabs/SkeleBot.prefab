@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b82a4c48f715064c8c138fafa4b040e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHealth: 50
+  totalHealth: 125
   damage: 1
 --- !u!114 &373951435985593947
 MonoBehaviour:
@@ -132,8 +132,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointA: {fileID: 3916372498995780882}
   pointB: {fileID: 350300297108005880}
-  speed: 5
+  speed: 6
   currPoint: {fileID: 0}
+  cooldownTimer: 0
 --- !u!114 &5043255579133976580
 MonoBehaviour:
   m_ObjectHideFlags: 0

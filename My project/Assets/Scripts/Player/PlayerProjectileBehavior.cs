@@ -19,6 +19,8 @@ public class PlayerProjectileBehavior : MonoBehaviour
         StartCoroutine(nameof(Lifespan));
 
         Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
+
+        if (playerTurned) { transform.localScale *= -1; }
     }
 
     // Update is called once per frame

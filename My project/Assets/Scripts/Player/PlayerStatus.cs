@@ -12,7 +12,7 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] private Image healthDisplay;
     [SerializeField] private Sprite[] healthSprites;
     [SerializeField] private Rigidbody2D rb;
-    
+    private Animator animator;
 
 
     private void Awake()
@@ -23,6 +23,7 @@ public class PlayerStatus : MonoBehaviour
     private void Start()
     {
         manager = GameObject.FindGameObjectWithTag("Manager");
+        animator = GetComponent<Animator>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -44,7 +45,7 @@ public class PlayerStatus : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-
+        
         health -= damage;
 
         UpdateDisplay();
@@ -52,7 +53,16 @@ public class PlayerStatus : MonoBehaviour
         {
             PlayerDeath();
         }
+        else
+        {
+            animator.SetBool("isHurt", true);
+        }
     }
+
+    void NotHurt()
+    {
+        animator.SetBool("isHurt", false);
+    } 
 
     public void HealDamage(int heal)
     {
@@ -68,9 +78,16 @@ public class PlayerStatus : MonoBehaviour
     {
         GetComponent<PlayerControl>().enabled = false;
         GetComponent<PlayerShootingMechanic>().enabled = false;
-        GetComponent<SpriteRenderer>().enabled = false;
-        GetComponent<Rigidbody2D>().simulated = false;
+        //GetComponent<SpriteRenderer>().enabled = false;
 
+        animator.Play("Player_Death");
+        
+        GetComponent<Rigidbody2D>().simulated = false;
+    }
+
+    void GameOver()
+    {
+        Debug.Log("Game Over!");
         manager.GetComponent<Rules>().GameOver();
     }
 }

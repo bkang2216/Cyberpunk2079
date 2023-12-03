@@ -80,4 +80,9 @@ public class PlayerShootingMechanic : MonoBehaviour
     {
         Instantiate(chargedProjectile, projectileOrigin.transform.position, transform.rotation);
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(projectileOrigin.transform.position, new(0.5f, 0.5f, 0));
+    }
 }
