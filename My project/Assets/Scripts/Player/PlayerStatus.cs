@@ -5,6 +5,12 @@ using UnityEngine.UI;
 
 public class PlayerStatus : MonoBehaviour
 {
+    public AudioSource PlayerHitSound;
+    public AudioSource PlayerDeadSound;
+
+   
+
+
     // WIP Script - Will replace HurtPlayer and PlayerHealth Scripts
     private int health = 10;
     private GameObject manager;
@@ -17,6 +23,8 @@ public class PlayerStatus : MonoBehaviour
 
     private void Awake()
     {
+        PlayerHitSound = GetComponent<AudioSource>();
+        PlayerDeadSound = GetComponent<AudioSource>();
         UpdateDisplay();
     }
 
@@ -24,6 +32,7 @@ public class PlayerStatus : MonoBehaviour
     {
         manager = GameObject.FindGameObjectWithTag("Manager");
         animator = GetComponent<Animator>();
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -51,14 +60,17 @@ public class PlayerStatus : MonoBehaviour
     {
         
         health -= damage;
-
+        PlayerHitSound.Play();
         UpdateDisplay();
         if (health <= 0)
         {
+            PlayerDeadSound.Play();
+            Debug.Log("Audio plays");
             PlayerDeath();
         }
         else
         {
+            
             animator.SetBool("isHurt", true);
         }
     }
@@ -80,10 +92,11 @@ public class PlayerStatus : MonoBehaviour
 
     void PlayerDeath()
     {
+        
         GetComponent<PlayerControl>().enabled = false;
         GetComponent<PlayerShootingMechanic>().enabled = false;
         //GetComponent<SpriteRenderer>().enabled = false;
-
+        
         animator.Play("Player_Death");
         
         GetComponent<Rigidbody2D>().simulated = false;
@@ -91,7 +104,10 @@ public class PlayerStatus : MonoBehaviour
 
     void GameOver()
     {
+        
         Debug.Log("Game Over!");
         manager.GetComponent<Rules>().GameOver();
     }
+
+    
 }
