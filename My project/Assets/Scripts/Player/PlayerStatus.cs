@@ -41,6 +41,10 @@ public class PlayerStatus : MonoBehaviour
         {
             healthDisplay.sprite = healthSprites[health];
         }
+        else
+        {
+            healthDisplay.sprite = healthSprites[0];
+        }
     }
 
     public void TakeDamage(int damage)
