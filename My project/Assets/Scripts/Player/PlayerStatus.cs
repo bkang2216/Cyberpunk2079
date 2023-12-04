@@ -8,6 +8,8 @@ public class PlayerStatus : MonoBehaviour
     // WIP Script - Will replace HurtPlayer and PlayerHealth Scripts
     private int health = 10;
     private GameObject manager;
+    public AudioSource PlayerHitSound;
+    public AudioSource PlayerDeadSound;
 
     [SerializeField] private Image healthDisplay;
     [SerializeField] private Sprite[] healthSprites;
@@ -24,6 +26,8 @@ public class PlayerStatus : MonoBehaviour
     {
         manager = GameObject.FindGameObjectWithTag("Manager");
         animator = GetComponent<Animator>();
+        PlayerHitSound = GetComponent<AudioSource>();
+        PlayerDeadSound = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -51,10 +55,11 @@ public class PlayerStatus : MonoBehaviour
     {
         
         health -= damage;
-
+        PlayerHitSound.Play();
         UpdateDisplay();
         if (health <= 0)
         {
+            PlayerDeadSound.Play();
             PlayerDeath();
         }
         else
