@@ -796,10 +796,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1014763251526125204, guid: 8e435e9fd5b79b14fb65c206b614d865, type: 3}
-      propertyPath: damping
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 2464047717966014325, guid: 8e435e9fd5b79b14fb65c206b614d865, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -847,10 +843,6 @@ PrefabInstance:
     - target: {fileID: 5831740637875954952, guid: 8e435e9fd5b79b14fb65c206b614d865, type: 3}
       propertyPath: m_Name
       value: S.T.E.V.E (Player)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7603131104967787094, guid: 8e435e9fd5b79b14fb65c206b614d865, type: 3}
-      propertyPath: movementPower
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
