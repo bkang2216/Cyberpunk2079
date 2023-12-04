@@ -45,7 +45,7 @@ public class SoundEffects : MonoBehaviour
             walking.enabled = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && grounded)
+        if (Input.GetKey(KeyCode.Space) && grounded)
         {
             jump2.enabled = true;
         }
