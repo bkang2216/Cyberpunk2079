@@ -5,16 +5,20 @@ using UnityEngine.UI;
 
 public class PlayerStatus : MonoBehaviour
 {
-    // WIP Script - Will replace HurtPlayer and PlayerHealth Scripts
-    private int health = 10;
-    private GameObject manager;
+     // Component Variables
+    Animator animator;
 
+    // Public Variables
+    public AudioSource PlayerHitSound;
+    public AudioSource PlayerDeadSound;
+
+    // Private / [SerializeField] Variables
+    int health = 10;
+    GameObject manager;
     [SerializeField] private Image healthDisplay;
     [SerializeField] private Sprite[] healthSprites;
-    [SerializeField] private Rigidbody2D rb;
-    private Animator animator;
 
-
+    //-------------------------------------------------------------------\\
     private void Awake()
     {
         UpdateDisplay();
@@ -28,14 +32,14 @@ public class PlayerStatus : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("HealthBoost"))
+        if (collision.gameObject.CompareTag("HealthBoost")) // Heals the player by 1 hp when colliding a health boost pickup and destroys the health boost afterwards
         {
             HealDamage(1);
             Destroy(collision.gameObject);
         }
     }
 
-    private void UpdateDisplay()
+    private void UpdateDisplay() // Syncs the health bar UI display to the health variable
     {
         if (health >= 0)
         {
@@ -43,7 +47,7 @@ public class PlayerStatus : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage) // A public function for enemies to deal damage to the player and game over code
     {
         
         health -= damage;
@@ -59,12 +63,7 @@ public class PlayerStatus : MonoBehaviour
         }
     }
 
-    void NotHurt()
-    {
-        animator.SetBool("isHurt", false);
-    } 
-
-    public void HealDamage(int heal)
+    void HealDamage(int heal) // Healing function
     {
         health += heal;
         if (health > 10)
@@ -74,20 +73,23 @@ public class PlayerStatus : MonoBehaviour
         UpdateDisplay();
     }
 
-    void PlayerDeath()
+    void PlayerDeath() // Function for disabling player input scripts and plays death animation
     {
         GetComponent<PlayerControl>().enabled = false;
         GetComponent<PlayerShootingMechanic>().enabled = false;
-        //GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<Rigidbody2D>().simulated = false;
 
         animator.Play("Player_Death");
-        
-        GetComponent<Rigidbody2D>().simulated = false;
     }
 
-    void GameOver()
+    void GameOver() // Function for animation event for game over
     {
         Debug.Log("Game Over!");
         manager.GetComponent<Rules>().GameOver();
+    }
+
+    void NotHurt() // Function for animation event for recovering from hurt animation
+    {
+        animator.SetBool("isHurt", false);
     }
 }

@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class PlayerProjectileBehavior : MonoBehaviour
 {
+    // Component Variables
     GameObject player;
+
+    // Private / [SerializeField] Variables
     bool playerTurned;
+    [SerializeField] int[] projectileDamage = new int[2];
+    [SerializeField] float projectileSpeed;
+    [SerializeField] float lifespanDuration;
 
-    public int[] projectileDamage = new int[2];
-    public float projectileSpeed;
-    public float lifespanDuration;
-
+    //-------------------------------------------------------------------\\
     private void Start()
     {
         player = GameObject.Find("Player");
@@ -26,7 +29,7 @@ public class PlayerProjectileBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         if (playerTurned)
         {
             transform.position = transform.position + projectileSpeed * Time.deltaTime * -transform.right;
@@ -39,6 +42,7 @@ public class PlayerProjectileBehavior : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+<<<<<<< Updated upstream
         Destroy(gameObject);
     }
 
@@ -52,6 +56,13 @@ public class PlayerProjectileBehavior : MonoBehaviour
         else if (hit.CompareTag("EditorOnly"))
         {
             // Does nothing on purpose to allow the projectile to pass-through objects meant for editor purposes.
+        }
+        else
+=======
+        if (collision.gameObject.CompareTag("Enemy"))
+>>>>>>> Stashed changes
+        {
+            Destroy(gameObject);
         }
         else
         {

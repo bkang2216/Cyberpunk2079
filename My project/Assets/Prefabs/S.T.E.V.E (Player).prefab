@@ -203,7 +203,7 @@ Transform:
   m_GameObject: {fileID: 1978635092819347455}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.94, y: 0.35, z: 0}
+  m_LocalPosition: {x: 1.413, y: 0.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -711,9 +711,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd181508766297f4bb1936af2f582e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   movementPower: 12
   jumpPower: 8.2
   playerTurned: 0
+=======
+  playerTurned: 0
+  movementPower: 8
+  jumpPower: 7
+>>>>>>> Stashed changes
 --- !u!114 &3424732137533722856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -739,7 +745,6 @@ MonoBehaviour:
   - {fileID: -471261419, guid: 06e6c203219f597418bddaf333dffbae, type: 3}
   - {fileID: -2066033400, guid: 06e6c203219f597418bddaf333dffbae, type: 3}
   - {fileID: 190512096, guid: 06e6c203219f597418bddaf333dffbae, type: 3}
-  rb: {fileID: 7652879472251822170}
 --- !u!114 &7168017191611362751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -752,12 +757,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a0f424e7334cec40946b3b3b8d657fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Charged: {fileID: 0}
+  slider: {fileID: 4990985563370551245}
+  progressBar: {fileID: 1536000442993976952}
+  chargeTime: 235
   normalProjectile: {fileID: 5943606260902552317, guid: d0dd6700947a9ad4b95b38fdf08ed6b8, type: 3}
   chargedProjectile: {fileID: 5943606260902552317, guid: f8a9557a1c4b16c4d8db082807275c54, type: 3}
   projectileOrigin: {fileID: 1978635092819347455}
+<<<<<<< Updated upstream
   chargeTime: 275
   slider: {fileID: 4990985563370551245}
   progressBar: {fileID: 1536000442993976952}
+=======
+>>>>>>> Stashed changes
 --- !u!50 &7652879472251822170
 Rigidbody2D:
   serializedVersion: 4

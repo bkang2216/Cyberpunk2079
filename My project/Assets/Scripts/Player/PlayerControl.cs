@@ -6,19 +6,24 @@ using UnityEngine.UIElements;
 
 public class PlayerControl : MonoBehaviour
 {
+    // Component Variables
     private Rigidbody2D rb;
     private Animator animator;
 
-    public float movementPower = 10f;
-    public float jumpPower = 10f;
+    // Public Variables
+    [HideInInspector] public bool playerTurned; // Hidden since it should only be used by another script(s)
 
-    public bool playerTurned;
-
+    // Private / [SerializeField] Variables
+    [SerializeField] float movementPower = 10f;
+    [SerializeField] float jumpPower = 10f;
     float inputH;
     float jump = 0;
 
-    const float MAXJUMP = 2;
+    //const Variables
+    const float MAXJUMP = 2; // Hard limit on max jumps
 
+
+    //-------------------------------------------------------------------\\
     void Awake()
     {
         animator = GetComponent<Animator>();
@@ -27,15 +32,15 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
-        Movement();
+        Movement(); // Functionality of player's movement
 
-        if (rb.velocity.y > 3f)
+        if (rb.velocity.y > 3f) // Animation logic for jumping
         {
             animator.SetBool("isJumping", true);
             animator.SetBool("isFalling", false);
             animator.SetBool("isIdle", false);
         }
-        if (rb.velocity.y < -3f)
+        if (rb.velocity.y < -3f) // Animation logic for falling
         {
             animator.SetBool("isFalling", true);
             animator.SetBool("isJumping", false);
@@ -44,8 +49,8 @@ public class PlayerControl : MonoBehaviour
 
         if (rb.velocity.y == 0) 
         {
-            jump = 0;                               // Resets player's jumps to 0 after retaining a 0 velocity on the y-axis
-            if (animator.GetBool("isJumping") == true || animator.GetBool("isFalling"))
+            jump = 0; // Resets player's jumps to 0 after retaining a 0 velocity on the y-axis
+            if (animator.GetBool("isJumping") == true || animator.GetBool("isFalling")) // Animation logic for reverting from jumping/falling
             {
                 animator.SetBool("isJumping", false);
                 animator.SetBool("isFalling", false);
@@ -61,25 +66,24 @@ public class PlayerControl : MonoBehaviour
         Vector2 movement = inputH * movementPower * Time.deltaTime * Vector2.right; // Calculate the movement for the player
 
         // Logic for running and idle
-        if (inputH != 0 && rb.velocity.y < 3f && rb.velocity.y > -3f)
+        if (inputH != 0 && rb.velocity.y < 3f && rb.velocity.y > -3f) // Animation logic for moving left/right
         {
-            animator.SetBool("isMoving", true);         // Plays running animation
+            animator.SetBool("isMoving", true);
             
         }
         else
         {
-            animator.SetBool("isMoving", false);    // Plays idle animation
+            animator.SetBool("isMoving", false);
         }
 
-        // Reads jump input and limits the player's jump to only allow it when not exceeding the max jump limit
-        if (Input.GetButtonDown("Jump") && jump != MAXJUMP)
+        if (Input.GetButtonDown("Jump") && jump != MAXJUMP) // Reads jump input and limits the player's jump to only allow it when not exceeding the max jump limit
         {
             rb.velocity = Vector2.up * jumpPower;   //Adds vertical force to the player
             ++jump;
         }
 
-        // Faces the player in the direction they're moving in
-        if (inputH == -1)
+        
+        if (inputH == -1) // Faces the player in the direction they're moving in
         { 
             transform.localScale = new (-1, 1, 1);
             playerTurned = true;
@@ -90,18 +94,18 @@ public class PlayerControl : MonoBehaviour
             playerTurned = false;
         }
 
-        // Limits the player's velocity in both directions
-        if (rb.velocity.x <= movementPower && rb.velocity.x >= -movementPower)
+        
+        if (rb.velocity.x <= movementPower && rb.velocity.x >= -movementPower) // Limits the player's velocity in both directions
         {
             rb.AddForce(movement * 20, ForceMode2D.Impulse); // Adds horizontal force to the player
         }
 
-        // Once the player stops pressing A or D, they will come to a immediate stop
-        if (inputH == 0 && rb.velocity.x != 0)
+        
+        if (inputH == 0 && rb.velocity.x != 0) // Once the player stops pressing A or D, they will come to a immediate stop
         {
             float yVelocity = rb.velocity.y;
-            rb.velocity = Vector2.right * 0;        // Puts the player's velocity to 0
-            rb.velocity = Vector2.up*yVelocity;
+            rb.velocity = Vector2.right * 0;        
+            rb.velocity = Vector2.up*yVelocity; // Preserving the velocity of y to allow for natural and responsive control in mid-air
         }
     }
 

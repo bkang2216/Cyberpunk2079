@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerShootingMechanic : MonoBehaviour
 {
+<<<<<<< Updated upstream
 
     [Header("Projectile GameObjects")]
     public GameObject normalProjectile;
@@ -13,13 +14,25 @@ public class PlayerShootingMechanic : MonoBehaviour
 
     [Header("Projectile Charging GUI Variables")]
     public int chargeTime;
+=======
+    // Component Variables
+    public AudioSource Charged;
+    Animator animator;
+    Coroutine animatorFunction;
+>>>>>>> Stashed changes
     [SerializeField] Slider slider;
     [SerializeField] Image progressBar;
 
+    // Private / [SerializeField] Variables
     int charge;
-    Animator animator;
-    Coroutine animatorFunction;
+    [Header("Projectile Charging GUI Variables")]
+    [SerializeField] int chargeTime;
+    [Header("Projectile GameObjects")]
+    [SerializeField] GameObject normalProjectile;
+    [SerializeField] GameObject chargedProjectile;
+    [SerializeField] GameObject projectileOrigin;
 
+    //-------------------------------------------------------------------\\
     void Awake()
     {
         animator = GetComponent<Animator>();
@@ -29,17 +42,17 @@ public class PlayerShootingMechanic : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetKey(KeyCode.Mouse0)) // Logic for shooting: Clicking shoots a normal projectile, hold and release shoots a charged projectile
         {
-            ++charge;
-            slider.value = charge;
+            ++charge; // Adds a charge per Update()
+            slider.value = charge; // Syncs the charge UI display to variable
 
-            if (charge >= chargeTime)
+            if (charge >= chargeTime) 
             {
-                progressBar.color = Color.blue;
+                progressBar.color = Color.blue; // Changes charge UI display to blue if the time for the charge is completed
             }
         }
-        else if (Input.GetKeyUp(KeyCode.Mouse0))
+        else if (Input.GetKeyUp(KeyCode.Mouse0)) // This part of the statement performs a task based on the duration of mouse left click
         {
             
             if (animatorFunction != null)
@@ -47,10 +60,11 @@ public class PlayerShootingMechanic : MonoBehaviour
                 StopCoroutine(animatorFunction);
             }
             
+            // Sets the animation to shooting if idle and reverts back to idle if not shooting after a second
             animator.SetBool("isShooting", true);
             animatorFunction = StartCoroutine(AnimationTimer(1));
 
-            if (charge >= chargeTime)
+            if (charge >= chargeTime) // Logic for calling the appropriate function for shooting a projectile
             {
                 ShootChargedProjectile();
             }
@@ -58,7 +72,8 @@ public class PlayerShootingMechanic : MonoBehaviour
             {
                 ShootNormalProjectile();
             }
-            
+
+            //Resets the variables associated with charging
             charge = 0;
             slider.value = charge;
             progressBar.color = Color.red;
@@ -83,6 +98,6 @@ public class PlayerShootingMechanic : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(projectileOrigin.transform.position, new(0.5f, 0.5f, 0));
+        Gizmos.DrawWireCube(projectileOrigin.transform.position, new(0.5f, 0.5f, 0)); // Adds a visible gizmo for the origin point of player projectile
     }
 }
