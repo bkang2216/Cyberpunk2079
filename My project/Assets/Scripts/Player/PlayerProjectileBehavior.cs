@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
-using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class PlayerProjectileBehavior : MonoBehaviour
@@ -42,10 +40,22 @@ public class PlayerProjectileBehavior : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(gameObject);
-        if (collision.gameObject.CompareTag("Enemy"))
+    }
+
+    private void OnTriggerEnter2D(Collider2D hit)
+    {
+        if (hit.CompareTag("Enemy"))
+        {
+            hit.GetComponent<EnemyDamageCalculation>().TakeDamage(projectileDamage[0], projectileDamage[1]);
+            Destroy(gameObject);
+        }
+        else if (hit.CompareTag("EditorOnly"))
+        {
+            // Does nothing on purpose to allow the projectile to pass-through objects meant for editor purposes.
+        }
+        else
         {
             Destroy(gameObject);
-            collision.gameObject.GetComponent<EnemyDamageCalculation>().TakeDamage(projectileDamage[0], projectileDamage[1]);
         }
     }
 

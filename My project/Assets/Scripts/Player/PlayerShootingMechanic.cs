@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerShootingMechanic : MonoBehaviour
 {
-    public AudioSource Charged;
+
     [Header("Projectile GameObjects")]
     public GameObject normalProjectile;
     public GameObject chargedProjectile;
@@ -25,7 +25,6 @@ public class PlayerShootingMechanic : MonoBehaviour
         animator = GetComponent<Animator>();
         slider.maxValue = chargeTime;
         progressBar.color = Color.red;
-        Charged = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -54,7 +53,6 @@ public class PlayerShootingMechanic : MonoBehaviour
             if (charge >= chargeTime)
             {
                 ShootChargedProjectile();
-                Charged.Play();
             }
             else
             {
