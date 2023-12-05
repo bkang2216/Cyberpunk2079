@@ -42,7 +42,6 @@ public class PlayerProjectileBehavior : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-<<<<<<< Updated upstream
         Destroy(gameObject);
     }
 
@@ -51,17 +50,6 @@ public class PlayerProjectileBehavior : MonoBehaviour
         if (hit.CompareTag("Enemy"))
         {
             hit.GetComponent<EnemyDamageCalculation>().TakeDamage(projectileDamage[0], projectileDamage[1]);
-            Destroy(gameObject);
-        }
-        else if (hit.CompareTag("EditorOnly"))
-        {
-            // Does nothing on purpose to allow the projectile to pass-through objects meant for editor purposes.
-        }
-        else
-=======
-        if (collision.gameObject.CompareTag("Enemy"))
->>>>>>> Stashed changes
-        {
             Destroy(gameObject);
         }
         else

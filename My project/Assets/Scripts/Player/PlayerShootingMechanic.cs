@@ -5,21 +5,10 @@ using UnityEngine.UI;
 
 public class PlayerShootingMechanic : MonoBehaviour
 {
-<<<<<<< Updated upstream
-
-    [Header("Projectile GameObjects")]
-    public GameObject normalProjectile;
-    public GameObject chargedProjectile;
-    public GameObject projectileOrigin;
-
-    [Header("Projectile Charging GUI Variables")]
-    public int chargeTime;
-=======
     // Component Variables
     public AudioSource Charged;
     Animator animator;
     Coroutine animatorFunction;
->>>>>>> Stashed changes
     [SerializeField] Slider slider;
     [SerializeField] Image progressBar;
 
