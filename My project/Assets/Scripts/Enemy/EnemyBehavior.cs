@@ -15,7 +15,9 @@ public class EnemyBehavior : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer sr;
-    private GameObject player;
+    
+    
+    public GameObject player;
     [SerializeField] private bool cooldownTimer;
 
 #pragma warning disable IDE0051 // Remove unused private members
