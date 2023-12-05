@@ -5,8 +5,11 @@ using UnityEngine.UI;
 
 public class PlayerStatus : MonoBehaviour
 {
-     // Component Variables
-    Animator animator;
+    // WIP Script - Will replace HurtPlayer and PlayerHealth Scripts
+    private int health = 10;
+    private GameObject manager;
+    public AudioSource PlayerHitSound;
+    public AudioSource PlayerDeadSound;
 
     // Public Variables
     public AudioSource PlayerHitSound;
@@ -28,6 +31,8 @@ public class PlayerStatus : MonoBehaviour
     {
         manager = GameObject.FindGameObjectWithTag("Manager");
         animator = GetComponent<Animator>();
+        PlayerHitSound = GetComponent<AudioSource>();
+        PlayerDeadSound = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -45,16 +50,21 @@ public class PlayerStatus : MonoBehaviour
         {
             healthDisplay.sprite = healthSprites[health];
         }
+        else
+        {
+            healthDisplay.sprite = healthSprites[0];
+        }
     }
 
     public void TakeDamage(int damage) // A public function for enemies to deal damage to the player and game over code
     {
         
         health -= damage;
-
+        PlayerHitSound.Play();
         UpdateDisplay();
         if (health <= 0)
         {
+            PlayerDeadSound.Play();
             PlayerDeath();
         }
         else
