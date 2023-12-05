@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class PlayerShootingMechanic : MonoBehaviour
 {
+    Animator animator;
+    int charge;
+    Coroutine animatorFunction;
+
     public AudioSource Charged;
     [Header("Projectile GameObjects")]
     public GameObject normalProjectile;
@@ -15,17 +19,6 @@ public class PlayerShootingMechanic : MonoBehaviour
     public int chargeTime;
     [SerializeField] Slider slider;
     [SerializeField] Image progressBar;
-
-    // Private / [SerializeField] Variables
-    int charge;
-    [Header("Projectile Charging GUI Variables")]
-    [SerializeField] int chargeTime;
-    [Header("Projectile GameObjects")]
-    [SerializeField] GameObject normalProjectile;
-    [SerializeField] GameObject chargedProjectile;
-    [SerializeField] GameObject projectileOrigin;
-
-    //-------------------------------------------------------------------\\
     void Awake()
     {
         animator = GetComponent<Animator>();

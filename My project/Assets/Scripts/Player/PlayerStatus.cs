@@ -5,12 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerStatus : MonoBehaviour
 {
-    // WIP Script - Will replace HurtPlayer and PlayerHealth Scripts
-    private int health = 10;
-    private GameObject manager;
-    public AudioSource PlayerHitSound;
-    public AudioSource PlayerDeadSound;
-
+    Animator animator;
     // Public Variables
     public AudioSource PlayerHitSound;
     public AudioSource PlayerDeadSound;
