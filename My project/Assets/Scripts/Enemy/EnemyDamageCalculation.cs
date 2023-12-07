@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyDamageCalculation : MonoBehaviour
 {
     EnemyStatus stats;
-    [SerializeField] TextMeshProUGUI damageOutputDisplay;
+    TextMeshProUGUI damageOutputDisplay;
 
     private void Awake()
     {

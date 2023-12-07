@@ -5,8 +5,9 @@ using UnityEngine;
 public class Rules : MonoBehaviour
 {
     [SerializeField] float timeRatePercentage = 100;
-    bool gameOver;
-
+    [SerializeField] GameObject GameOverScreen;
+    [HideInInspector] public bool paused;
+    
 
     private void Awake()
     {
@@ -17,15 +18,19 @@ public class Rules : MonoBehaviour
 
     public void GameOver()
     {
-        gameOver = true;
-        Time.timeScale = 0;
+        paused = true;
+        GameOverScreen.SetActive(true);
     }
 
     private void Update()
     {
-        if (!gameOver)
+        if (!paused)
         {
             Time.timeScale = timeRatePercentage / 100;
+        }
+        else
+        {
+            Time.timeScale = 0;
         }
     }
 }

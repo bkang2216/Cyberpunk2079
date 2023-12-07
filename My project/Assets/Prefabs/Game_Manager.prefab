@@ -111,3 +111,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5235a62d3e5d89b489b15c7d1227ad8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeRatePercentage: 100
+  GameOverScreen: {fileID: 0}

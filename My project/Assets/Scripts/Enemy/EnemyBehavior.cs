@@ -87,7 +87,7 @@ public class EnemyBehavior : MonoBehaviour
             {
                 Turn();
             }
-            rb.velocity = new Vector2(-speed*1.2f, 0);
+            rb.velocity = new Vector2(-speed*1.2f, Physics2D.gravity.y);
         }
         else
         {
@@ -95,7 +95,7 @@ public class EnemyBehavior : MonoBehaviour
             {
                 Turn();
             }
-            rb.velocity = new Vector2(speed * 1.2f, 0);
+            rb.velocity = new Vector2(speed * 1.2f, Physics2D.gravity.y);
         }
 
     }
@@ -104,11 +104,11 @@ public class EnemyBehavior : MonoBehaviour
     {
         if (currPoint == pointB.transform)
         {
-            rb.velocity = new Vector2(-speed, 0);
+            rb.velocity = new Vector2(-speed, Physics2D.gravity.y);
         }
         else
         {
-            rb.velocity = new Vector2(speed, 0);
+            rb.velocity = new Vector2(speed, Physics2D.gravity.y);
         }
 
         if (Vector2.Distance(transform.position, currPoint.position) < 1.5 && currPoint == pointB.transform)

@@ -8,7 +8,7 @@ public class StartMenuController : MonoBehaviour
     public void StartGame() 
     {
         //Start game.
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("LevelTutorial");
     }
     public void ExitGame() 
     {
